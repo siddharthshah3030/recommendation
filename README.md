@@ -16,6 +16,7 @@ and probably compare their score on test set
 
 ### Todos
 
+ - build Collaborative model 
  - build CNN model
  - add better parameters 
 
