@@ -61,7 +61,6 @@ corr_contact.head()
 #recommendign top 10 movies 
 corr_AFO[corr_AFO['number_of_ratings'] > 100].sort_values(by='correlation', ascending=False).head(10)
 
-
 corr_contact[corr_contact['number_of_ratings'] > 100].sort_values(by='Correlation', ascending=False).head(10)
 
 
