@@ -25,3 +25,15 @@ Ratings.head()
 R = Ratings.as_matrix()
 user_ratings_mean = np.mean(R, axis = 1)
 Ratings_demeaned = R - user_ratings_mean.reshape(-1, 1)
+
+
+sparsity = round(1.0 - len(ratings) / float(n_users * n_movies), 3)
+print 'The sparsity level of MovieLens1M dataset is ' +  str(sparsity * 100) + '%'
+
+from scipy.sparse.linalg import svds
+U, sigma, Vt = svds(Ratings_demeaned, k = 50)
+
+sigma = np.diag(sigma)
+
+
+
