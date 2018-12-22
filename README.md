@@ -4,14 +4,14 @@
 
 
 
-### currently it's movie recommendation system 
+### Let's recommend movies to users 
 dataset used: [MovieLens ](https://grouplens.org/datasets/movielens/)
 
-
-currently it is item based recommendation only
-
+### Features
+ - Item-based
+ - Matrix factorization
 soon i'll add more and better models in the same dataset
-and probably compare their score on test set
+and probably compare their score on test set too
 
 
 ### Todos
