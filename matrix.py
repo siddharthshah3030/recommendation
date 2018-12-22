@@ -17,3 +17,11 @@ ratings.head()
 
 n_users = ratings.userId.unique().shape[0]
 n_movies = ratings.movieId.unique().shape[0]
+
+
+Ratings = ratings.pivot(index = 'userId', columns ='movieId', values = 'rating').fillna(0)
+Ratings.head()
+
+R = Ratings.as_matrix()
+user_ratings_mean = np.mean(R, axis = 1)
+Ratings_demeaned = R - user_ratings_mean.reshape(-1, 1)
