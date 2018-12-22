@@ -72,3 +72,29 @@ already_rated, predictions = recommend_movies(preds, 50, movies, ratings, 20)
 already_rated.head(20)
 
 predictions
+#              eveluation --------------------------------------------------
+# Import libraries from Surprise package
+from surprise import Reader, Dataset, SVD, evaluate
+
+# Load Reader library
+reader = Reader()
+
+# Load ratings dataset with Dataset library
+data = Dataset.load_from_df(ratings[['userId', 'movieId', 'rating']], reader)
+
+# Split the dataset for 5-fold evaluation
+data.split(n_folds=5)
+
+# Use the SVD algorithm.
+svd = SVD()
+
+# Compute the RMSE of the SVD algorithm.
+evaluate(svd, data, measures=['RMSE'])
+
+trainset = data.build_full_trainset()
+svd.train(trainset)
+
+ratings[ratings['userId'] == 50]
+# tells estimated movie rating 
+svd.predict(50, 600)
+
